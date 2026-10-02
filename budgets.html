@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Төсөв - Student Finance</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Student Finance</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="transactions.html">Гүйлгээнүүд</a>
+    <a href="analytics.html">Шинжилгээ</a>
+    <a href="budgets.html" class="active">Төсөв</a>
+    <a href="profile.html">Профайл</a>
+    <a href="#" onclick="logoutUser()">Гарах</a>
+  </div>
+
+  <div class="main-content">
+    <h1>Төсөв төлөвлөлт</h1>
+    
+    <div class="card" style="margin-top: 20px;">
+      <h3>Шинэ төсөв зохиох</h3>
+      <form id="budgetForm" style="display: flex; gap: 10px; margin-top: 15px;">
+        <input type="text" id="category" placeholder="Ангилал" required style="padding: 8px;">
+        <input type="number" id="limit" placeholder="Хязгаар ($)" required style="padding: 8px;">
+        <button type="submit">Хадгалах</button>
+      </form>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <h3>Миний төсвүүд</h3>
+      <div id="budgetsList" style="margin-top: 15px;"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/budgets.js"></script>
+</body>
+</html>

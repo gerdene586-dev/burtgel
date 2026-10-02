@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нэвтрэх - Student Finance</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Нэвтрэх</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="И-мэйл" required>
+      <input type="password" id="password" placeholder="Нууц үг" required>
+      <button type="submit">Нэвтрэх</button>
+    </form>
+    <p>Бүртгэлгүй юу? <a href="register.html">Бүртгүүлэх</a></p>
+    <p><a href="#" onclick="enterGuestMode(); return false;">Бүртгэлгүй шууд орох</a></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      loginUser(
+        document.getElementById("email").value,
+        document.getElementById("password").value
+      );
+    });
+  </script>
+</body>
+</html>

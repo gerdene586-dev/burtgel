@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гүйлгээ - Student Finance</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Student Finance</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="transactions.html" class="active">Гүйлгээнүүд</a>
+    <a href="analytics.html">Шинжилгээ</a>
+    <a href="budgets.html">Төсөв</a>
+    <a href="profile.html">Профайл</a>
+    <a href="#" onclick="logoutUser()">Гарах</a>
+  </div>
+
+  <div class="main-content">
+    <h1>Гүйлгээний бүртгэл</h1>
+
+    <div class="card" style="margin-top: 20px;">
+      <h3>Шинэ гүйлгээ нэмэх</h3>
+      <form id="transactionForm" style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+        <input type="text" id="title" placeholder="Гүйлгээний нэр" required style="padding: 8px; flex: 1;">
+        <input type="number" id="amount" step="0.01" placeholder="Дүн ($)" required style="padding: 8px; width: 120px;">
+        <select id="type" style="padding: 8px;">
+          <option value="expense">Зарлага</option>
+          <option value="income">Орлого</option>
+        </select>
+        <input type="text" id="category" placeholder="Ангилал (жишээ нь: Хүнс)" required style="padding: 8px; flex: 1;">
+        <button type="submit">Нэмэх</button>
+      </form>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <h3>Бүх гүйлгээ</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid #ddd;">
+            <th style="padding: 10px;">Огноо</th>
+            <th style="padding: 10px;">Нэр</th>
+            <th style="padding: 10px;">Ангилал</th>
+            <th style="padding: 10px;">Дүн</th>
+            <th style="padding: 10px;">Үйлдэл</th>
+          </tr>
+        </thead>
+        <tbody id="transactionsTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/transactions.js"></script>
+</body>
+</html>

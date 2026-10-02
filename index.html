@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Finance System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script>
+    async function init() {
+      if (sessionStorage.getItem("studentFinanceGuest") === "true") {
+        window.location.href = "dashboard.html";
+        return;
+      }
+
+      if (supabaseClient) {
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        if (session) {
+          window.location.href = "dashboard.html";
+          return;
+        }
+      }
+
+      window.location.href = "login.html";
+    }
+    init();
+  </script>
+</body>
+</html>
